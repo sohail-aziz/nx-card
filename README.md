@@ -31,18 +31,6 @@ Founder & CEO\
 -   Responsive mobile-first web interface
 -   No dedicated app required for the basic NFC-to-web experience
 
-## Current Profile Information
-
-  Field              Value
-  ------------------ ----------------------------------
-  Name               Sohail Aziz
-  Role               Founder & CEO
-  Organization       NEXTWAVE LABS
-  Phone / WhatsApp   +92 333 7894902
-  Email              sohail.aziz@next-wav.com
-  Website            next-wav.com
-  LinkedIn           sohailaziz05
-  NextCard URL       nextcard.next-wav.com/sohailaziz
 
 ## Repository Structure
 
