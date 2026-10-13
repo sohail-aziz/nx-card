@@ -19,7 +19,7 @@
       <div class="identity">
         <div class="eyebrow">Digital Business Card</div>
         <h1>Fahad Masood</h1>
-        <div class="role">Cheif Marketing Officer</div>
+        <div class="role">CMO</div>
         <div class="org">NEXTWAVE LABS</div>
         <div class="motto">Purity · Clarity · Brilliance</div>
       </div>
@@ -84,7 +84,7 @@ END:VCARD`;
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 async function shareCard(){
-  const info={title:'Khaleeq Ur Rehman — NextCard',url:'https://nextcard.next-wav.com/fahadmasood'};
+  const info={title:'Fahad Masood — NextCard',url:'https://nextcard.next-wav.com/fahadmasood'};
   try{
     if(navigator.share) await navigator.share(info);
     else{await navigator.clipboard.writeText(info.url);showToast('NextCard link copied');}
