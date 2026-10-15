@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07090d">
+  <meta name="description" content="Muhammad Shakeel Raza — Writer, NEXTWAVE LABS. Digital NextCard.">
+  <title>Muhammad Shakeel Raza — NextCard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <section class="card">
+    <header class="hero">
+      <div class="brand">
+        <div class="nextcard">Next<span>Card</span></div>
+        <img class="brand-logo" src="nextwave-labs-logo.png" alt="NEXTWAVE LABS logo">
+      </div>
+      <div class="identity">
+        <div class="eyebrow">Digital Business Card</div>
+        <h1>Muhammad Shakeel Raza</h1>
+        <div class="role">Writer</div>
+        <div class="org">NEXTWAVE LABS</div>
+        <div class="motto">Purity · Clarity · Brilliance</div>
+      </div>
+    </header>
+
+    <nav class="quick">
+      <a href="tel:+923349272122"><span class="symbol">☎</span><span>Call</span></a>
+      <a class="whatsapp" href="https://wa.me/923349272122" target="_blank" rel="noopener"><span class="symbol">◉</span><span>WhatsApp</span></a>
+      <a href="mailto:me_vs_i@live.com"><span class="symbol">✉</span><span>Email</span></a>
+      <a href="https://www.linkedin.com/in/muhammad-shakeel-raza-158aa3169" target="_blank" rel="noopener"><span class="symbol">in</span><span>LinkedIn</span></a>
+    </nav>
+
+    <section class="details">
+      <a class="item" href="tel:+923349272122">
+        <span class="icon">☎</span>
+        <span class="copy"><span class="label">Phone / WhatsApp</span><span class="value">+92 334 9272122</span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="item" href="mailto:me_vs_i@live.com">
+        <span class="icon">✉</span>
+        <span class="copy"><span class="label">Email</span><span class="value">me_vs_i@live.com</span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="item" href="https://next-wav.com" target="_blank" rel="noopener">
+        <span class="icon">◎</span>
+        <span class="copy"><span class="label">Website</span><span class="value">next-wav.com</span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="item" href="https://www.linkedin.com/in/muhammad-shakeel-raza-158aa3169" target="_blank" rel="noopener">
+        <span class="icon">in</span>
+        <span class="copy"><span class="label">LinkedIn</span><span class="value">muhammad-shakeel-raza-158aa3169</span></span>
+        <span class="chev">›</span>
+      </a>
+
+      <div class="actions">
+        <button class="save" onclick="saveVCF()">Save Contact</button>
+        <button class="share" onclick="shareCard()">Share</button>
+      </div>
+    </section>
+  </section>
+  <div class="footer">nextcard.next-wav.com/muhammad-shakeel-raza</div>
+</main>
+<div id="toast" class="toast">Copied</div>
+
+<script>
+function saveVCF(){
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Muhammad Shakeel Raza
+ORG:NEXTWAVE LABS
+TITLE:Writer
+TEL;TYPE=CELL:+923349272122
+EMAIL;TYPE=INTERNET:me_vs_i@live.com
+URL:https://next-wav.com
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/muhammad-shakeel-raza-158aa3169
+NOTE:NextCard: https://nextcard.next-wav.com/muhammad-shakeel-raza
+END:VCARD`;
+  const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='muhammad-shakeel-raza.vcf';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+async function shareCard(){
+  const info={title:'Muhammad Shakeel Raza — NextCard',url:'https://nextcard.next-wav.com/muhammad-shakeel-raza'};
+  try{
+    if(navigator.share) await navigator.share(info);
+    else{await navigator.clipboard.writeText(info.url);showToast('NextCard link copied');}
+  }catch(e){}
+}
+function showToast(m){
+  const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),1800);
+}
+</script>
+</body>
+</html>
