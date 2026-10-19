@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07090d">
+  <meta name="description" content="Muteen Ahmad, NEXTWAVE LABS. Digital NextCard.">
+  <title>Muteen Ahmad — NextCard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <section class="card">
+    <header class="hero">
+      <div class="brand">
+        <div class="nextcard">Next<span>Card</span></div>
+        <img class="brand-logo" src="nextwave-labs-logo.png" alt="NEXTWAVE LABS logo">
+      </div>
+      <div class="identity">
+        <div class="eyebrow">Digital Business Card</div>
+        <h1>Muteen Ahmad</h1>
+        <div class="role">Driver - Alto White 2021</div>
+        <div class="org">BKY 686</div>
+       <!-- <div class="motto">Purity · Clarity · Brilliance</div> -->
+      </div>
+    </header>
+
+    <nav class="quick">
+      <a href="tel:+923098759043"><span class="symbol">☎</span><span>Call</span></a>
+      <a class="whatsapp" href="https://wa.me/923098759043" target="_blank" rel="noopener"><span class="symbol">◉</span><span>WhatsApp</span></a>
+     <!-- <a href="mailto:khaleequrrehman.ms@gmail.com"><span class="symbol">✉</span><span>Email</span></a> -->
+     <!-- <a href="https://www.linkedin.com/in/khaleeq-ur-rehman789" target="_blank" rel="noopener"><span class="symbol">in</span><span>LinkedIn</span></a> -->
+    </nav>
+
+    <section class="details">
+      <a class="item" href="tel:+923098759043">
+        <span class="icon">☎</span>
+        <span class="copy"><span class="label">Phone / WhatsApp</span><span class="value">+92 309 8759043</span></span>
+        <span class="chev">›</span>
+      </a>
+      <!--
+      <a class="item" href="mailto:khaleequrrehman.ms@gmail.com">
+        <span class="icon">✉</span>
+        <span class="copy"><span class="label">Email</span><span class="value">khaleequrrehman.ms@gmail.com</span></span>
+        <span class="chev">›</span>
+      </a> -->
+      <a class="item" href="https://next-wav.com" target="_blank" rel="noopener">
+        <span class="icon">◎</span>
+        <span class="copy"><span class="label">Website</span><span class="value">next-wav.com</span></span>
+        <span class="chev">›</span>
+      </a>
+      <!-- <a class="item" href="https://www.linkedin.com/in/khaleeq-ur-rehman789" target="_blank" rel="noopener">
+        <span class="icon">in</span>
+        <span class="copy"><span class="label">LinkedIn</span><span class="value">khaleeq-ur-rehman789</span></span>
+        <span class="chev">›</span>
+      </a> -->
+
+      <div class="actions">
+        <button class="save" onclick="saveVCF()">Save Contact</button>
+        <button class="share" onclick="shareCard()">Share</button>
+      </div>
+    </section>
+  </section>
+  <div class="footer">nextcard.next-wav.com/muteen-ahmad</div>
+</main>
+<div id="toast" class="toast">Copied</div>
+
+<script>
+function saveVCF(){
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Muteen Ahmad
+ORG:NEXTWAVE LABS
+TITLE:Driver
+TEL;TYPE=CELL:+923098759043
+EMAIL;TYPE=INTERNET:
+URL:https://next-wav.com
+X-SOCIALPROFILE;TYPE=
+NOTE:NextCard: https://nextcard.next-wav.com/muteen-ahmad
+END:VCARD`;
+  const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='muteenahmad.vcf';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+async function shareCard(){
+  const info={title:'Muteen Ahmad — NextCard',url:'https://nextcard.next-wav.com/muteen-ahmad'};
+  try{
+    if(navigator.share) await navigator.share(info);
+    else{await navigator.clipboard.writeText(info.url);showToast('NextCard link copied');}
+  }catch(e){}
+}
+function showToast(m){
+  const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),1800);
+}
+</script>
+</body>
+</html>
