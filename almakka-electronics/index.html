@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07090d">
+  <meta name="description" content="Al-Makka Electronics. Digital NextCard.">
+  <title>Muteen Ahmad — NextCard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <section class="card">
+    <header class="hero">
+      <div class="brand">
+        <div class="nextcard">Next<span>Card</span></div>
+        <img class="brand-logo" src="nextwave-labs-logo.png" alt="NEXTWAVE LABS logo">
+      </div>
+      <div class="identity">
+        <div class="eyebrow">Digital Business Card</div>
+        <h1>Al-Makka Electronics</h1>
+        <div class="role">Civic Center, Gulzar-e-Quaid</div>
+        <div class="org">Rawalpindi</div>
+        <div class="motto">Timinings: 8:00 AM - 9:00 PM - 7 Days a week</div>
+      </div>
+    </header>
+
+    <nav class="quick">
+      <a href="tel:+923185734392"><span class="symbol">☎</span><span>Call</span></a>
+      <a class="whatsapp" href="https://wa.me/923185734392" target="_blank" rel="noopener"><span class="symbol">◉</span><span>WhatsApp</span></a>
+     <!-- <a href="mailto:khaleequrrehman.ms@gmail.com"><span class="symbol">✉</span><span>Email</span></a> -->
+     <!-- <a href="https://www.linkedin.com/in/khaleeq-ur-rehman789" target="_blank" rel="noopener"><span class="symbol">in</span><span>LinkedIn</span></a> -->
+    </nav>
+
+    <section class="details">
+      <a class="item" href="tel:+923185734392">
+        <span class="icon">☎</span>
+        <span class="copy"><span class="label">Phone / WhatsApp</span><span class="value">+92 318 5734392</span></span>
+        <span class="chev">›</span>
+      </a>
+      
+      <a class="item" href="">
+        <span class="icon">&#128179;</span>
+        <span class="copy"><span class="label">EasyPaisa / JazzCash</span><span class="value">+92 318 5734392</span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="item" href="https://next-wav.com" target="_blank" rel="noopener">
+        <span class="icon">◎</span>
+        <span class="copy"><span class="label">Website</span><span class="value">next-wav.com</span></span>
+        <span class="chev">›</span>
+      </a>
+      <a class="item" href="https://www.linkedin.com/company/nextwave-labs/" target="_blank" rel="noopener">
+        <span class="icon">in</span>
+        <span class="copy"><span class="label">Follow Us on LinkedIn</span><span class="value">nextwave-labs</span></span>
+        <span class="chev">›</span>
+      </a>
+
+      <div class="actions">
+        <button class="save" onclick="saveVCF()">Save Contact</button>
+        <button class="share" onclick="shareCard()">Share</button>
+      </div>
+    </section>
+  </section>
+  <div class="footer">NextCard - A product of NextWave Labs Pakistan</div>
+</main>
+<div id="toast" class="toast">Copied</div>
+
+<script>
+function saveVCF(){
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Al-Makka Electronics
+ORG:NEXTWAVE LABS
+TITLE:Driver
+TEL;TYPE=CELL:+923185734392
+EMAIL;TYPE=INTERNET:
+URL:https://next-wav.com
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/company/nextwave-labs/
+NOTE:NextCard: https://nextcard.next-wav.com/almakka-electronics
+END:VCARD`;
+  const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='almakkaelectronics.vcf';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+async function shareCard(){
+  const info={title:'Muteen Ahmad — NextCard',url:'https://nextcard.next-wav.com/almakka-electronics'};
+  try{
+    if(navigator.share) await navigator.share(info);
+    else{await navigator.clipboard.writeText(info.url);showToast('NextCard link copied');}
+  }catch(e){}
+}
+function showToast(m){
+  const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),1800);
+}
+</script>
+</body>
+</html>
