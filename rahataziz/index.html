@@ -19,7 +19,7 @@
       <div class="identity">
         <div class="eyebrow">Digital Business Card</div>
         <h1>Rahat Aziz</h1>
-       <!-- <div class="role">Builder</div> -->
+        <div class="role">Writer</div>
         <!-- <div class="org">NEXTWAVE LABS</div> -->
        <!-- <div class="motto">Purity · Clarity · Brilliance</div>-->
       </div>
@@ -28,8 +28,8 @@
     <nav class="quick">
       <a href="tel:+923449675769"><span class="symbol">☎</span><span>Call</span></a>
       <a class="whatsapp" href="https://wa.me/923449675769" target="_blank" rel="noopener"><span class="symbol">◉</span><span>WhatsApp</span></a>
-     <a href="mailto: azizrahat530@gmail.com"><span class="symbol">✉</spa><span>Email</span></a> 
-     <a href="https://www.linkedin.com/in/rahat-aziz-70200a444" target="_blank" rel="noopener"><span class="symbol">in</span><span>LinkedIn</span></a> -->
+     <a href="mailto:azizrahat530@gmail.com"><span class="symbol">✉</spa><span>Email</span></a> 
+     <a href="https://www.linkedin.com/in/rahat-aziz-70200a444" target="_blank" rel="noopener"><span class="symbol">in</span><span>LinkedIn</span></a>
     </nav>
 
     <section class="details">
@@ -60,7 +60,7 @@
       </div>
     </section>
   </section>
-  <div class="footer">nextcard.next-wav.com/rahataziz</div>
+  <div class="footer">NextCard - A product of NextWave Labs Pakistan</div>
 </main>
 <div id="toast" class="toast">Copied</div>
 
@@ -84,7 +84,7 @@ END:VCARD`;
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 async function shareCard(){
-  const info={title:'Muhammad Atif — NextCard',url:'https://nextcard.next-wav.com/rahataziz'};
+  const info={title:'Rahat Aziz — NextCard',url:'https://nextcard.next-wav.com/rahataziz'};
   try{
     if(navigator.share) await navigator.share(info);
     else{await navigator.clipboard.writeText(info.url);showToast('NextCard link copied');}
