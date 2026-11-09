@@ -17,8 +17,9 @@
         <img class="brand-logo" src="nextwave-labs-logo.png" alt="NEXTWAVE LABS logo">
       </div>
       <div class="identity">
-        <div class="eyebrow">Digital Business Card</div>
-        <h1>Aisha Aziz Aish</h1>
+        <div class="eyebrow">The Digital Business Card</div>
+        <!-- <h1>Aisha Aziz Aish</h1> -->
+        <h1>عائشہ عزیز عائش</h1>
         <div class="role">Poetess - Creative Writer</div>
        <!-- <div class="org">NEXTWAVE LABS</div> -->
        <!--  <div class="motto">Purity · Clarity · Brilliance</div> -->
@@ -33,27 +34,41 @@
     </nav>
 
     <section class="details">
+      
+      <!-- phone/whatsapp -->
       <a class="item" href="tel:+923343624888">
         <span class="icon">☎</span>
         <span class="copy"><span class="label">Phone / WhatsApp</span><span class="value">+92 334 3624888</span></span>
         <span class="chev">›</span>
       </a>
+      
+      <!-- email -->
       <a class="item" href="mailto:amiaisha2@gmail.com">
         <span class="icon">✉</span>
         <span class="copy"><span class="label">Email</span><span class="value">amiaisha2@gmail.com</span></span>
         <span class="chev">›</span>
       </a>
-      <a class="item" href="https://next-wav.com" target="_blank" rel="noopener">
-        <span class="icon">◎</span>
-        <span class="copy"><span class="label">Website</span><span class="value">next-wav.com</span></span>
+      
+      <!-- fb -->
+      <a class="item" href="https://facebook.com/profile.php?id=100068675029743" target="_blank" rel="noopener">
+        <span class="icon">fb</span>
+        <span class="copy"><span class="label">Facebook</span><span class="value">عائشہ عزیز عائش</span></span>
         <span class="chev">›</span>
       </a> 
-      
+
+       <!-- linkedin -->
       <a class="item" href="https://www.linkedin.com/in/ami-aisha-a5a2b61a5" target="_blank" rel="noopener">
         <span class="icon">in</span>
         <span class="copy"><span class="label">LinkedIn</span><span class="value">ami-aisha-a5a2b61a5</span></span>
         <span class="chev">›</span>
       </a>
+
+      <!-- blog -->
+      <a class="item" href="https://problemscom.wordpress.com/" target="_blank" rel="noopener">
+        <span class="icon">◎</span>
+        <span class="copy"><span class="label">Blog</span><span class="value">problemscom.wordpress.com</span></span>
+        <span class="chev">›</span>
+      </a> 
 
       <div class="actions">
         <button class="save" onclick="saveVCF()">Save Contact</button>
@@ -61,7 +76,10 @@
       </div>
     </section>
   </section>
-  <div class="footer">nextcard.next-wav.com/aishaaziz</div>
+  <div class="footer">
+    <p>A project of NextWave Labs Pakistan</p> 
+    <p>next-wav.com</p>
+  </div>
 </main>
 <div id="toast" class="toast">Copied</div>
 
@@ -74,7 +92,7 @@ TITLE:Aisha Aziz Aish
 TEL;TYPE=CELL:+923343624888
 EMAIL;TYPE=INTERNET:amiaisha2@gmail.com
 URL:https://next-wav.com
-X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/ami-aisha-a5a2b61a5
+X-SOCIALPROFILE;TYPE=facebook:https://facebook.com/profile.php?id=100068675029743
 NOTE:NextCard: https://nextcard.next-wav.com/aishaaziz
 END:VCARD`;
   const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
